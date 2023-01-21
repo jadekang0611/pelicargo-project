@@ -34,7 +34,6 @@ const Results = () => {
   }
 
   function changeHandler(event) {
-    console.log(event.target.value);
     setQuery(event.target.value);
     setCurrentPage(1);
   }
@@ -52,7 +51,6 @@ const Results = () => {
 
   function handleChange(event, page) {
     setCurrentPage(page);
-    console.log(page);
     fetchData(`http://localhost:8000/photos?query=${query}&page=${page}`);
   }
 

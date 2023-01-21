@@ -1,11 +1,11 @@
 import { ColorRing } from "react-loader-spinner";
 const LoadingScreen = () => {
   return (
-    <div>
+    <div style={{ paddingTop: "40px" }}>
       <ColorRing
         visible={true}
-        height="80"
-        width="80"
+        height="40"
+        width="40"
         ariaLabel="blocks-loading"
         wrapperStyle={{}}
         wrapperClass="blocks-wrapper"
