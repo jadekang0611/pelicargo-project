@@ -20,7 +20,7 @@ const NoResultScreen = () => {
         variant="subtitle2"
         className={classes.message}
       >
-        We couldn't find what you searched for. <br /> Try searching again.
+        Search by a keyword to see amazing photos!
       </Typography>
     </div>
   );

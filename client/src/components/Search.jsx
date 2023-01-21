@@ -1,7 +1,6 @@
 import React from "react";
-import { InputBase, Button, InputAdornment } from "@mui/material";
-import { styled, alpha } from "@mui/material/styles";
-import Results from "../pages/Results";
+import { InputBase } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import { useSearchStyles } from "../styles";
 
