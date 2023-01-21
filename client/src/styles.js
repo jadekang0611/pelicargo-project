@@ -1,18 +1,9 @@
 import { makeStyles } from "@mui/styles";
 import { createTheme } from "@mui/material/styles";
-import { deepOrange, grey } from "@mui/material/colors";
 
 export const darkTheme = createTheme({
   palette: {
     mode: "dark",
-    //     primary: {
-    //       main: "#000",
-    //     },
-    //     secondary: {
-    //       main: "#ff5722",
-    //     },
-    //     background: "#000",
-    // primary: "#121212",
     background: {
       default: "#121212",
       paper: "#121212",
@@ -38,12 +29,6 @@ export const darkTheme = createTheme({
 export const lightTheme = createTheme({
   palette: {
     mode: "light",
-    // primary: {
-    //   main: "#00bcd4",
-    // },
-    // secondary: {
-    //   main: "#ff5722",
-    // },
   },
   components: {
     MuiCssBaseline: {

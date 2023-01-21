@@ -51,7 +51,8 @@ const Results = () => {
 
   function handleChange(event, page) {
     setCurrentPage(page);
-    fetchData(`http://localhost:8000/photos?query=${query}&page=${page}`);
+    fetchData(`https://pelicargo-project.vercel.app
+    /photos?query=${query}&page=${page}`);
   }
 
   React.useEffect(() => {
@@ -66,7 +67,7 @@ const Results = () => {
       setLoading(false);
     };
     fetchData(
-      `http://localhost:8000/photos?query=${query}&page=${currentPage}`
+      `https://pelicargo-project.vercel.app/photos?query=${query}&page=${currentPage}`
     );
   }, [query, currentPage]);
   return (
