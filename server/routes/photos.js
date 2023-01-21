@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+require("dotenv").config();
 
 router.get("/", async (req, res) => {
   // Get page number and search query from query string
@@ -44,8 +45,7 @@ router.get("/", async (req, res) => {
         `https://api.unsplash.com/search/photos?query=${query}&per_page=5&page=${page}`,
         {
           headers: {
-            Authorization:
-              "Client-ID HbOwmRSP26zIvZ3gAiTMRwKn2YmPX2JARaWH3DXJy6E",
+            Authorization: process.env.UNSPLASH_ACCESS_KEY,
           },
         }
       );
@@ -54,7 +54,6 @@ router.get("/", async (req, res) => {
       total_results.unsplash = unsplashResponse.data.total;
       //buildData("unsplash", unsplashData);
     } catch (error) {
-      console.log("There was an issue with the Unsplash API");
       console.log(error);
     }
 
@@ -64,25 +63,16 @@ router.get("/", async (req, res) => {
         `https://api.pexels.com/v1/search?query=${query}&per_page=4&page=${page}`,
         {
           headers: {
-            Authorization:
-              "GONMi59KLb2gHZVOrq3nIrQQ1egP1ayiVXe8KCWnitVr7S41l354Y7k4",
+            Authorization: process.env.PEXELS_ACCESS_KEY,
           },
         }
       );
 
       pexelsData = pexelsResponse.data.photos || [];
       total_results.pexels = pexelsResponse.data.total_results;
-      //buildData("pexels", pexelsData);
     } catch (error) {
-      console.log("There was an issue with the Pexels API");
-      //console.log(error);
+      console.log(error);
     }
-
-    // There is no more data
-    // if (pexelsData.length === 0 && unsplashData.length === 0) {
-    //   res.status(404).json({ error: "No photos found" });
-    //   return;
-    // }
 
     if (pexelsData.length < 4 && unsplashData.length !== 0) {
       let remaining = 4 - pexelsData.length;
