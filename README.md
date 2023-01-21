@@ -5,7 +5,8 @@
 [![Check Application](https://pelicargo-frontend-delta.vercel.app/)](https://pelicargo-frontend-delta.vercel.app/)
 
 [![Check API](https://pelicargo-project.vercel.app/photos/)](https://pelicargo-project.vercel.app/photos)
-To test the api, please add one search paramter (e.g,?query=cats) following the photos endpoint in the url.
+
+"To test the photos endpoint, pass in a query parameter "query" with a keyword to search for relevant photos, for example '/photos?query=dog' to search for photos of dogs."
 
 ## Screens
 
