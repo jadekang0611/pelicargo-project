@@ -9,4 +9,5 @@ To test the api, please add one search paramter (e.g,?query=cats) following the 
 ## Screens
 
 ![Main Page Image - Light Mode](/_images/screen1.png)
+
 ![Main Page Image - Dark Mode](/_images/screen2.png)
