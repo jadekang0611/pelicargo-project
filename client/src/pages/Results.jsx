@@ -87,13 +87,17 @@ const Results = () => {
               ))
             )}
           </Grid>
-          <div className={classes.paginationWrapper}>
-            <Pagination
-              count={pageCount}
-              page={currentPage}
-              onChange={handleChange}
-            />
-          </div>
+          {data.length === 0 ? (
+            ""
+          ) : (
+            <div className={classes.paginationWrapper}>
+              <Pagination
+                count={pageCount}
+                page={currentPage}
+                onChange={handleChange}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
