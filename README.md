@@ -2,8 +2,9 @@
 
 ## Deployed Links
 
-[frontend]("https://pelicargo-frontend-delta.vercel.app/")
-[api]("https://pelicargo-project.vercel.app/photos")
+[![Check Application](https://pelicargo-frontend-delta.vercel.app/)](https://pelicargo-frontend-delta.vercel.app/)
+
+[![Check API](https://pelicargo-project.vercel.app/photos/)](https://pelicargo-project.vercel.app/photos)
 To test the api, please add one search paramter (e.g,?query=cats) following the photos endpoint in the url.
 
 ## Screens
