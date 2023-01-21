@@ -2,9 +2,9 @@
 
 ## Deployed Links
 
-[![Check Application]](https://pelicargo-frontend-delta.vercel.app/)
+[Check Application](https://pelicargo-frontend-delta.vercel.app/)
 
-[![Check API]](https://pelicargo-project.vercel.app/photos)
+[Check API](https://pelicargo-project.vercel.app/photos)
 
 "To test the photos endpoint, pass in a query parameter "query" with a keyword to search for relevant photos, for example '/photos?query=dog' to search for photos of dogs."
 
