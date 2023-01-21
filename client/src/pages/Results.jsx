@@ -56,16 +56,6 @@ const Results = () => {
   }
 
   React.useEffect(() => {
-    const fetchData = async (url) => {
-      try {
-        const { data } = await axios.get(url);
-        setData(data.imgList);
-        setPageCount(data.pages);
-      } catch (err) {
-        console.log(err);
-      }
-      setLoading(false);
-    };
     fetchData(
       `https://pelicargo-project.vercel.app/photos?query=${query}&page=${currentPage}`
     );
