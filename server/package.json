@@ -1,0 +1,20 @@
+{
+  "name": "pelicargo-server",
+  "version": "1.0.0",
+  "description": "Prexels and Unsplush API keys will be used for a custom API.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Jade",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
