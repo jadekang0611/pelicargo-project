@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import Results from "./pages/Results";
-import { Switch, CssBaseline, IconButton } from "@mui/material";
+import { CssBaseline, IconButton } from "@mui/material";
 import { darkTheme, lightTheme } from "./styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
