@@ -38,7 +38,6 @@ router.get("/", async (req, res) => {
   }
 
   try {
-    console.log("trying");
     try {
       // Fetch data from Unsplash API
       const unsplashResponse = await axios.get(
@@ -102,13 +101,8 @@ router.get("/", async (req, res) => {
       total_results.unsplash = unsplashResponse.data.total;
     }
 
-    console.log(unsplashData.length);
-    console.log(pexelsData.length);
-
     if (unsplashData.length < 5 && pexelsData.length !== 0) {
-      console.log("made it in here");
       let remaining = 5 - unsplashData.length;
-      console.log(4 + remaining);
       pexelsResponse = await axios.get(
         `https://api.pexels.com/v1/search?query=${query}&per_page=${
           4 + remaining
@@ -127,13 +121,8 @@ router.get("/", async (req, res) => {
     buildData("pexels", pexelsData);
     buildData("unsplash", unsplashData);
 
-    console.log(`Total Pexels: ${total_results.pexels}`);
-    console.log(`Total Unsplash: ${total_results.unsplash}`);
-
     let pexelsPages = Math.ceil(total_results.pexels / 9);
-    console.log(`Pexel Pages: ${pexelsPages}`);
     let unsplashPages = Math.ceil(total_results.unsplash / 9);
-    console.log(`Unsplash Pages: ${unsplashPages}`);
 
     // setting the smaller page for now due to issues with fetching when the page
     // number doesn't exist
@@ -142,10 +131,6 @@ router.get("/", async (req, res) => {
     } else {
       pages = pexelsPages;
     }
-
-    console.log(`Max Pages: ${pages}`);
-
-    console.log(imgList);
     res.json({ imgList: imgList, pages: pages });
   } catch (error) {
     console.error(error);
