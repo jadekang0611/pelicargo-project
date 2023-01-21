@@ -13,6 +13,7 @@ import ResultModal from "../components/ResultModal";
 import Search from "../components/Search";
 import { useResultsPageStyles } from "../styles";
 import NoResultScreen from "../components/NoResultScreen";
+import LoadingScreen from "../components/LoadingScreen";
 
 const Results = () => {
   const classes = useResultsPageStyles();
@@ -21,29 +22,8 @@ const Results = () => {
   const [showModal, setShowModal] = React.useState(false);
   const [selectedImg, setSelectedImg] = React.useState({ alt: "", src: "" });
   const [query, setQuery] = React.useState("");
-  const [currentPage, setCurrentPage] = React.useState(1);
-
-  // setting up my dynamic pagination (infinite scroll)
-  const [page, setPage] = React.useState(1);
+  const [currentPage, setCurrentPage] = React.useState(0);
   const [pageCount, setPageCount] = React.useState(0);
-  const loader = React.useRef(null);
-
-  const handleObserver = React.useCallback((entries) => {
-    const target = entries[0];
-    if (target.isIntersecting) {
-      setPage((prev) => prev + 1);
-    }
-  }, []);
-
-  React.useEffect(() => {
-    const option = {
-      root: null,
-      rootMargin: "20px",
-      threshold: 0,
-    };
-    const observer = new IntersectionObserver(handleObserver, option);
-    if (loader.current) observer.observe(loader.current);
-  }, [handleObserver]);
 
   function handleOpenModal(event) {
     setShowModal(true);
@@ -87,12 +67,14 @@ const Results = () => {
       }
       setLoading(false);
     };
-    fetchData(`http://localhost:8000/photos?query=${query}&page=${page}`);
-  }, [query, page]);
+    fetchData(
+      `http://localhost:8000/photos?query=${query}&page=${currentPage}`
+    );
+  }, [query, currentPage]);
   return (
     <div>
       {loading ? (
-        "Loading..."
+        <LoadingScreen />
       ) : (
         <div>
           <Search changeHandler={changeHandler} />

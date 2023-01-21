@@ -1,39 +1,19 @@
-import React, { useState } from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import React from "react";
+import { ThemeProvider } from "@mui/material/styles";
 import Results from "./pages/Results";
-import { Switch, CssBaseline } from "@mui/material";
+import { Switch, CssBaseline, IconButton } from "@mui/material";
+import { darkTheme, lightTheme } from "./styles";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 function App() {
-  // const theme = useTheme();
-  const [toggleDark, setToggleDark] = useState(false);
-
-  const theme = createTheme({
-    palette: {
-      mode: toggleDark ? "dark" : "light",
-      grey: {
-        800: "#000000", // overrides failed
-        900: "#121212", // overrides success
-      },
-    },
-    components: {
-      MuiCssBaseline: {
-        styleOverrides: {
-          body: {
-            margin: "0",
-            boxSizing: "border-box",
-            padding: "40px",
-          },
-        },
-      },
-    },
-  });
+  const [theme, setTheme] = React.useState(lightTheme);
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline style={{ padding: "10px" }} />
-        <Layout toggleDark={toggleDark} setToggleDark={setToggleDark}>
-          {/* <Search /> */}
+        <Layout theme={theme} setTheme={setTheme}>
           <Results />
         </Layout>
       </ThemeProvider>
@@ -41,19 +21,24 @@ function App() {
   );
 }
 
-export const Layout = ({ children, toggleDark, setToggleDark }) => {
+export const Layout = ({ children, theme, setTheme }) => {
   const handleColorModeChange = () => {
-    setToggleDark(!toggleDark);
+    setTheme(theme === lightTheme ? darkTheme : lightTheme);
   };
   return (
     <div>
       <section style={{ display: "flex", justifyContent: "flex-end" }}>
-        <Switch
-          checked={toggleDark}
-          onChange={handleColorModeChange}
-          name="toggleDark"
-          color="primary"
-        />
+        <IconButton
+          sx={{ ml: 1 }}
+          onClick={handleColorModeChange}
+          color="inherit"
+        >
+          {theme.palette.mode === "dark" ? (
+            <Brightness7Icon />
+          ) : (
+            <Brightness4Icon />
+          )}
+        </IconButton>
       </section>
 
       <section>{children}</section>
